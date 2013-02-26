@@ -64,17 +64,13 @@ static UIStatusBarStyle _statusBarStyle;
 static BOOL _modalOpen = false;
 
 @interface Appirater ()
-- (BOOL)connectedToNetwork;
-+ (Appirater*)sharedInstance;
-- (void)showRatingAlert;
-- (BOOL)ratingConditionsHaveBeenMet;
-- (void)incrementUseCount;
-- (void)hideRatingAlert;
+
 @end
 
 @implementation Appirater 
 
 @synthesize ratingAlert;
+@synthesize delegate;
 
 + (void) setAppId:(NSString *)appId {
     _appId = appId;

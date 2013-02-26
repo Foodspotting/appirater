@@ -486,3 +486,26 @@ static BOOL _modalOpen = false;
 }
 
 @end
+
+@implementation Appirater (Foodspotting)
+
+// foodspotting-specific code
++ (NSTimeInterval) secondsSinceLaunch
+{
+	// get the version number that we've been tracking
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	
+	// get the launch date
+	NSTimeInterval timeInterval = [userDefaults doubleForKey:kAppiraterFirstUseDate];
+	if (timeInterval == 0) return 0;
+    
+	NSTimeInterval secondsSinceLaunch = [[NSDate date] timeIntervalSinceDate:[NSDate dateWithTimeIntervalSince1970:timeInterval]];
+	return secondsSinceLaunch;
+}
+
++ (BOOL) ratingAlertIsVisible
+{
+	return [[Appirater sharedInstance] ratingAlert].visible;
+}
+
+@end

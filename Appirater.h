@@ -226,6 +226,13 @@ extern NSString *const kAppiraterReminderRequestDate;
 
 @end
 
+@interface Appirater (Foodspotting)
+
+// foodspotting-specific code
++ (NSTimeInterval) secondsSinceLaunch;
++ (BOOL) ratingAlertIsVisible;
+
+@end
 
 @interface Appirater(Deprecated)
 
